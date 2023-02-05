@@ -8,6 +8,12 @@ const addScore = function (name, target) {
   score.textContent = newScoreValue;
 };
 
+const resetScore = function () {
+  const homeScore = document.querySelector(".home--score");
+  const guestScore = document.querySelector(".guest--score");
+  homeScore.textContent = guestScore.textContent = "0";
+};
+
 containerEl.addEventListener("click", (event) => {
   const target = event.target;
 
@@ -16,3 +22,5 @@ containerEl.addEventListener("click", (event) => {
   if (target.parentNode.className.includes("guest--buttons"))
     addScore("guest", target);
 });
+
+resetEl.addEventListener("click", resetScore);
